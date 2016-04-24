@@ -1,14 +1,18 @@
 integer Switch;
 default
 {
-    touch_start(integer num)
+    touch_start (integer num)
     {
-        Switch = !Switch;
+       Switch = !Switch;
         if (Switch)
         {
-            llSetPrimitiveParams([PRIM_GLOW, ALL_SIDES, 1]);
+            llSetPrimitiveParams([PRIM_GLOW, ALL_SIDES, 1,
+                                PRIM_POINT_LIGHT, TRUE,
+                                <1.0, 1.0, 1.0>, 1, 20, 1]);
         } else {
-            llSetPrimitiveParams([PRIM_GLOW, ALL_SIDES, 0]);
+            llSetPrimitiveParams([PRIM_GLOW, ALL_SIDES, 0,
+                                PRIM_POINT_LIGHT, FALSE,
+                                <1.0, 1.0, 1.0>, 1, 20, 1]);
         }
     }
 }
